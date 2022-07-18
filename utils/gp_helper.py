@@ -1,0 +1,142 @@
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.gaussian_process import GaussianProcessRegressor
+from scipy.stats import norm
+from scipy.optimize import minimize
+
+"""
+Helper functions for the GP and BO notebook.
+
+author: Chenran Xu  (chenran.xu@kit.edu)
+"""
+
+# plot helper functions
+def plot_gp(gpr, x, y, x_samples, y_samples, ax=None):
+    """Helper function to plot GP posterior
+
+    Input:
+        gpr: GaussianProcessRegression
+        x, y: fine array representing the target function
+        x_samples, y_samples: noisy samples used for building GP
+        ax: matplotlib.pyplot axes.axes
+    """
+    if ax is None:
+        ax = plt.gcf.add_subplot()
+    ax.plot(x, y, label="True f")
+    ax.plot(x_samples, y_samples, "*", label="Noisy Samples")
+    y_mean, y_std = gpr.predict(x.reshape(-1, 1), return_std=True)
+    ax.plot(x, y_mean, label="GP mean", color='black')
+    ax.fill_between(
+        x,
+        y_mean - y_std,
+        y_mean + y_std,
+        alpha=0.3,
+        color="grey",
+        label=r"$\pm$ 1 std. dev.",
+    )
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
+
+def plot_gp_with_acq(gpr, x, y, x_samples, y_samples, y_acq, axes, fig):
+
+    ax1, ax2 = axes
+    x_acq_argmax = np.argmax(y_acq)
+    
+    # plotting
+    plot_gp(gpr, x, y, x_samples, y_samples, ax=ax1)
+    ax1.set_xticks([])
+    
+    ax2.set_xlabel('x')
+    ax2.plot(x, y_acq, color='g', label='Acquisition')
+    ax2.plot(x[x_acq_argmax], y_acq[x_acq_argmax], '*', color='r', label='Max. acq')
+    fig.subplots_adjust(0,0,0.8,0.85,hspace=0.1)
+    fig.legend(bbox_to_anchor = (0.95,0.3,0.2,0.5))
+
+def plot_bo_result(yhist, ax, n_tries = None, nsteps=None, label=None, *kwargs):
+    if n_tries is None or nsteps is None:
+        ybest = np.asarray(yhist)
+        n_tries, nsteps = ybest.shape
+    else:
+        ybest = np.zeros((n_tries, nsteps))
+    for i in range(n_tries):
+        for n in range(nsteps):
+            ybest[i,n] = np.max(yhist[i][:n+1])
+    
+    ybest_mean = np.mean(ybest, axis=0)
+    ybest_std = np.std(ybest, axis=0)
+
+    ax.plot(ybest_mean, label=label)
+    ax.fill_between(np.arange(nsteps), ybest_mean-ybest_std, ybest_mean+ybest_std, alpha=0.3)
+
+
+
+# Acquisition function classes
+class Acquisition:
+    """Acquisition function base class"""
+
+    def __init__(self):
+        pass
+
+    def get_acq(self, x, gp: GaussianProcessRegressor):
+        return NotImplementedError
+
+    def suggest_next_sample(self, gp: GaussianProcessRegressor, bounds):
+        """Return the next point to sample by maximizing the acquisition function
+        
+        Input:
+            gp: GaussianProcessRegressor object
+            bounds: Optimization ranges with a shape of (n, 2), e.g. [[x1_min, x1_max],... [xi_min, xi_max]]
+        """
+        # initial guesses
+        xdim = bounds.shape[0]
+        x_tries = np.random.uniform(low=bounds[:, 0], high=bounds[:, 1], size=(5000, xdim))
+        ys = self.get_acq(x_tries,gp)
+        max_acq = ys.max()
+        x_max = x_tries[ys.argmax()]
+        # simply use scipy.optimize.minimize for now
+        res = minimize(
+            lambda x: -1*self.get_acq(x.reshape(-1, xdim), gp), 
+            x_max.reshape(-1, xdim),
+            bounds=bounds,
+            )
+        
+        if res.success and -res.fun >= max_acq:
+            x_max = res.x
+
+        # ensure the returned point is within bounds
+        return np.clip(x_max, bounds[:, 0], bounds[:, 1])
+
+class AcqEI(Acquisition):
+    def __init__(self, xi=0.):
+        """
+        xi : hyperparamter for exploitation-exploration tradeoff
+        """
+        super().__init__()
+        self.xi = xi
+
+    def get_acq(self, x, gp):
+        """Calculate EI at point x"""
+        if len(np.shape(x)) == 1:
+            x = np.array(x).reshape(-1,1)
+        y_mean, y_std = gp.predict(x, return_std=True)
+        y_best = np.max(gp.y_train_)
+        imp = y_mean - y_best - self.xi
+        z = imp / y_std
+        return imp * norm.cdf(z) + y_std * norm.pdf(z)
+
+
+class AcqUCB(Acquisition):
+    def __init__(self, k = 2.):
+        """
+        k : hyperparamter for exploitation-exploration tradeoff
+        """
+        super().__init__()
+        self.k = k
+
+    def get_acq(self, x, gp: GaussianProcessRegressor):
+        """Calculate UCB at point x"""
+        if len(np.shape(x)) == 1:
+            x = np.array(x).reshape(-1,1)
+        mu, sigma = gp.predict(x, return_std=True)
+
+        return mu + sigma * self.k
