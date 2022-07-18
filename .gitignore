@@ -318,7 +318,6 @@ $RECYCLE.BIN/
 *.jpeg
 *.jpg
 #*.pdf
-*.png
 *.ps
 
 # Output data
