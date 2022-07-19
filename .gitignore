@@ -2,7 +2,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python,macos,vim,emacs,windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,macos,vim,emacs,windows
 
-*.txt
+#*.txt
 
 ### Particular to this project and branch ###
 
