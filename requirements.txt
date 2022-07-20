@@ -1,6 +1,8 @@
+h5py
 matplotlib
 numpy
 scikit-learn
+scikit-optimize
 torch
 jupyter_contrib_nbextensions
 jupyter_nbextensions_configurator
