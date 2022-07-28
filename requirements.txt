@@ -10,7 +10,16 @@ jupyter_nbextensions_configurator
 #jupyter nbextensions_configurator enable --user
 
 # Reinforcement learning part
-swig
-gym[box2d]==0.21
-stable-baselines3
 git+https://github.com/desy-ml/cheetah.git@v0.5.13
+# ffmpeg
+gym[box2d]==0.21
+IPython
+ipywidgets
+Jupyter
+# numba
+# numexpr
+opencv-python
+pandas
+# pyfftw
+stable-baselines3
+swig
