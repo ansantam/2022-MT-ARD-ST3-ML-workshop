@@ -11,15 +11,16 @@ jupyter_nbextensions_configurator
 
 # Reinforcement learning part
 git+https://github.com/desy-ml/cheetah.git@v0.5.13
-# ffmpeg
+# dummy-pydoocs
+# brew install ffmpeg
 gym[box2d]==0.21
 IPython
 ipywidgets
 Jupyter
-# numba
-# numexpr
+numba
+numexpr
 opencv-python
 pandas
-# pyfftw
+# pyfftw (Apple Silicon with miniforge -> conda install pyfftw )
 stable-baselines3
 swig
