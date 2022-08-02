@@ -11,7 +11,7 @@ author: Chenran Xu  (chenran.xu@kit.edu)
 """
 
 # plot helper functions
-def plot_gpr_samples(gpr_model: GaussianProcessRegressor, ax, x=np.linspace(0,5,100), n_samples=5):
+def plot_gpr_samples(gpr_model: GaussianProcessRegressor, ax, x=np.linspace(0,5,100), n_samples=5, random_state=0):
     """Plot samples drawn from the Gaussian process model.
     modified from sklearn example: https://scikit-learn.org/stable/auto_examples/gaussian_process/plot_gpr_prior_posterior.html
 
@@ -24,15 +24,18 @@ def plot_gpr_samples(gpr_model: GaussianProcessRegressor, ax, x=np.linspace(0,5,
     ----------
     gpr_model : `GaussianProcessRegressor`
         A :class:`~sklearn.gaussian_process.GaussianProcessRegressor` model.
-    n_samples : int
-        The number of samples to draw from the Gaussian process distribution.
     ax : matplotlib axis
         The matplotlib axis where to plot the samples.
+    n_samples : int
+        The number of samples to draw from the Gaussian process distribution.
+    random_state: int, RandomState instance or None, defualt=0
+        Determines random number generation to randomly draw samples.
+        Pass an int for reproducible results across multiple function calls.
     """
     X = x.reshape(-1, 1)
 
     y_mean, y_std = gpr_model.predict(X, return_std=True)
-    y_samples = gpr_model.sample_y(X, n_samples)
+    y_samples = gpr_model.sample_y(X, n_samples, random_state=random_state)
 
     for idx, single_prior in enumerate(y_samples.T):
         ax.plot(
@@ -42,14 +45,14 @@ def plot_gpr_samples(gpr_model: GaussianProcessRegressor, ax, x=np.linspace(0,5,
             alpha=0.7,
             label=f"Sample #{idx + 1}",
         )
-    ax.plot(x, y_mean, color="black", label="Mean")
+    ax.plot(x, y_mean, color="black", label=r"GP mean $\mu(x)$")
     ax.fill_between(
         x,
         y_mean - y_std,
         y_mean + y_std,
         alpha=0.1,
         color="black",
-        label=r"$\pm$ 1 std. dev.",
+        label=r"$\pm 1 \sigma$",
     )
     ax.set_xlabel("x")
     ax.set_ylabel("y")
@@ -67,14 +70,14 @@ def plot_gp(gpr, x, y, x_samples, y_samples, ax=None):
         ax = plt.gcf.add_subplot()
     ax.plot(x, y, label="True f")
     y_mean, y_std = gpr.predict(x.reshape(-1, 1), return_std=True)
-    ax.plot(x, y_mean, label="GP mean", color='black')
+    ax.plot(x, y_mean, label=r"GP mean $\mu(x)$", color='black')
     ax.fill_between(
         x,
         y_mean - y_std,
         y_mean + y_std,
         alpha=0.3,
         color="grey",
-        label=r"$\pm$ 1 std. dev.",
+        label=r"$\pm 1 \sigma$",
     )
     ax.plot(x_samples, y_samples, "*", label="Noisy Samples")
     ax.set_xlabel("x")
@@ -90,8 +93,8 @@ def plot_gp_with_acq(gpr, x, y, x_samples, y_samples, y_acq, axes, fig):
     ax1.set_xticks([])
     
     ax2.set_xlabel('x')
-    ax2.plot(x, y_acq, color='g', label='Acquisition')
-    ax2.plot(x[x_acq_argmax], y_acq[x_acq_argmax], '*', color='r', label='Max. acq')
+    ax2.plot(x, y_acq, color='g', label=r'Acquisition $\alpha$')
+    ax2.plot(x[x_acq_argmax], y_acq[x_acq_argmax], '*', color='r', label=r"argmax($\alpha$)")
     fig.subplots_adjust(0,0,0.8,0.85,hspace=0.1)
     fig.legend(bbox_to_anchor = (0.95,0.3,0.2,0.5))
 
