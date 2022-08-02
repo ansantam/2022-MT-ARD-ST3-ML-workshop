@@ -1,37 +1,22 @@
-## Welcome to GitHub Pages
+# Introductory machine learning tutorials
+## About
+These tutorials were first used for the [2022 MT ARD ST3 pre-meeting Machine Learning Workshop](https://indico.desy.de/event/35272/)
+, part of the [10th MT ARD ST3 Meeting 2022 in Berlin](https://indico.desy.de/event/33584/).
 
-You can use the [editor on GitHub](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+## Getting started
+```
+git clone https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop.git
+cd 2022-MT-ARD-ST3-ML-workshop
+./setup.sh
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+## Tutorials
+- [Neural networks](https://nbviewer.org/github/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/1-neural_networks.ipynb)
+- [Bayesian optimization](https://nbviewer.org/github/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/2-bayesian_optimization.ipynb)
+- [Reinforcement learning](https://nbviewer.org/github/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/3-reinforcement_learning.ipynb)
 
-### Jekyll Themes
+### Bonus material
+- [Basic reinforcement learning introduction without ML libraries](https://nbviewer.org/github/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/bonus_material/RL_simple_gridworld.ipynb)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## References
+- [LaTeX bib file](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/library/library_ML.bib)
