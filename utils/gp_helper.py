@@ -83,7 +83,7 @@ def plot_gp(gpr, x, y, x_samples, y_samples, ax=None):
     ax.set_xlabel("x")
     ax.set_ylabel("y")
 
-def plot_gp_with_acq(gpr, x, y, x_samples, y_samples, y_acq, axes, fig):
+def plot_gp_with_acq(gpr, x, y, x_samples, y_samples, y_acq, axes, fig, legend=True):
 
     ax1, ax2 = axes
     x_acq_argmax = np.argmax(y_acq)
@@ -95,10 +95,11 @@ def plot_gp_with_acq(gpr, x, y, x_samples, y_samples, y_acq, axes, fig):
     ax2.set_xlabel('x')
     ax2.plot(x, y_acq, color='g', label=r'Acquisition $\alpha$')
     ax2.plot(x[x_acq_argmax], y_acq[x_acq_argmax], '*', color='r', label=r"argmax($\alpha$)")
-    fig.subplots_adjust(0,0,0.8,0.85,hspace=0.1)
-    fig.legend(bbox_to_anchor = (0.95,0.3,0.2,0.5))
+    if legend:
+        fig.subplots_adjust(0,0,0.8,0.85,hspace=0.1)
+        fig.legend(bbox_to_anchor = (0.95,0.3,0.2,0.5))
 
-def plot_bo_result(yhist, ax, n_tries = None, nsteps=None, label=None, *kwargs):
+def plot_bo_result(yhist, ax, n_tries = None, nsteps=None, label=None):
     if n_tries is None or nsteps is None:
         ybest = np.asarray(yhist)
         n_tries, nsteps = ybest.shape
@@ -153,10 +154,15 @@ class Acquisition:
         return np.clip(x_max, bounds[:, 0], bounds[:, 1])
 
 class AcqEI(Acquisition):
-    def __init__(self, xi=0.):
-        """
+    """
+    Expected Improvement (EI) acquisition
+    a(x) = E[ f(x) - f(best)]
+
+    Parameter:
         xi : hyperparamter for exploitation-exploration tradeoff
-        """
+    """
+    def __init__(self, xi=0.):
+
         super().__init__()
         self.xi = xi
 
@@ -172,10 +178,15 @@ class AcqEI(Acquisition):
 
 
 class AcqUCB(Acquisition):
-    def __init__(self, k = 2.):
-        """
+    """
+    Upper confidence bound (UCB) acquisition
+    a(x) = mu(x) + k * sigma(x)
+    
+    Parameter:
         k : hyperparamter for exploitation-exploration tradeoff
-        """
+    """
+    def __init__(self, k = 2.):
+
         super().__init__()
         self.k = k
 
