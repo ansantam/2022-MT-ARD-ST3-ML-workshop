@@ -19,7 +19,7 @@ from stable_baselines3.common.env_util import unwrap_wrapper
 from stable_baselines3.common.monitor import Monitor
 import yaml
 
-import dummypydoocs as pydoocs
+import utils.rl.dummypydoocs as pydoocs
 from .ARESlatticeStage3v1_9 import cell as ares_lattice
 
 
