@@ -3,7 +3,7 @@ import time
 import cheetah
 import numpy as np
 
-import dummypydoocs.ARESlatticeStage3v1_9 as lattice
+import utils.rl.ARESlatticeStage3v1_9 as lattice
 
 
 class DummyMachine:
