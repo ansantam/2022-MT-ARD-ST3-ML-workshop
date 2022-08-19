@@ -1,0 +1,147 @@
+% ===========================================================================
+%                      DELTA.bbx bib style for biblatex
+%                          by Stephan Kötter (2022)
+%
+% notes 
+% - the "%" at the end of each line are important. Seem to indicate line
+%   breaks. If ommited the references look strange.
+% - "\RequireBibliographyStyle{numeric-comp}" loads numerc-comp.bbx which in
+%   turn loads standard.bbx. All macros are defined there!
+%
+% ============================================================================
+
+\ProvidesFile{custom-numeric-comp.bbx}  %[2006/03/15 v1.0 biblatex bibliography style]
+
+\RequireBibliographyStyle{numeric-comp}
+
+
+\DeclareBibliographyDriver{article}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/translator+others}%
+  \newunit\newblock%
+  \printfield{title}%
+  \newunit\newblock%
+  \printfield{journaltitle}\addspace\printfield{volume}%
+  \addspace%
+  \newblock\printtext{(}\printfield{year}\printtext{)}%
+  \addperiod%
+  \addspace%
+  \usebibmacro{doi+eprint+url}%
+  \usebibmacro{pageref}%
+  \usebibmacro{finentry}}%
+
+\DeclareBibliographyDriver{inproceedings}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/translator+others}%
+  \newunit\newblock%
+  \printfield{title}%
+  \newunit\newblock%
+  \printfield{booktitle}%
+  \newunit\newblock%
+  \printfield{venue}%
+  {\iffieldundef{pages}
+     {}
+     {\newunit\newblock\printfield{pages}}}
+  \addspace%
+  \newblock\printtext{(}\printfield{year}\printtext{)}%
+  \addperiod%
+  \addspace%
+  \usebibmacro{doi+eprint+url}%
+  \usebibmacro{finentry}}%
+
+\DeclareBibliographyDriver{thesis}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/translator+others}%
+  \newunit%
+  \printfield{title}%
+  \newunit%
+  \printfield{type}%
+  \newunit%
+  \printlist{institution}%
+  \addspace%
+  \newblock\printtext{(}\printfield{year}\printtext{)}%
+  \addperiod%
+  \usebibmacro{finentry}}%
+  
+\DeclareBibliographyDriver{misc}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/translator+others}%
+  \newunit%
+  \printfield{title}%
+  \newunit%
+  \printlist{organization}%
+  \newunit%
+  \printfield{howpublished}%
+  \addspace%
+  \newblock\printtext{(}\printfield{year}\printtext{)}%
+  \addperiod%
+  \addspace%
+  \usebibmacro{doi+eprint+url}%
+  \usebibmacro{finentry}}%
+
+\DeclareBibliographyDriver{manual}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \printlist{publisher}%
+  \newunit%
+  \printfield{title}%
+  \newunit%
+  \printfield{edition}%
+  \addspace%
+  \newblock\printtext{(}\printfield{year}\printtext{)}%
+  \addperiod%
+  \addspace%
+  \usebibmacro{doi+eprint+url}%
+  \usebibmacro{finentry}}%
+
+\DeclareBibliographyDriver{book}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/translator+others}%
+  \newunit%
+  \printfield{title}%
+  \newunit%
+  \printlist{publisher}%
+  \addspace%
+  \newblock\printtext{(}\printfield{year}\printtext{)}%
+  \addperiod%
+  \addspace%
+  \usebibmacro{doi+eprint+url}%
+  \usebibmacro{finentry}}%
+  
+\DeclareBibliographyDriver{report}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/translator+others}%
+  \newunit\newblock%
+  \printfield{title}%
+  \newunit\newblock%
+  \printfield{type}%
+  \newunit\newblock%
+  \printlist{institution}%
+  \addspace%
+  \newblock\printtext{(}\printfield{year}\printtext{)}%
+  \addperiod%
+  \addspace%
+  \usebibmacro{doi+eprint+url}%
+  \usebibmacro{finentry}}%
+
+\DeclareBibliographyDriver{online}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/translator+others}%
+  \newunit\newblock%
+  \printfield{title}%
+  \newunit\newblock%
+  \printfield{url}%
+  \addspace%
+  \newblock\printtext{[accessed: }\printfield{year}\printtext{]}%
+  \addperiod%
+  \addspace%
+  \usebibmacro{doi+eprint+url}%
+  \usebibmacro{finentry}}%
+\endinput
