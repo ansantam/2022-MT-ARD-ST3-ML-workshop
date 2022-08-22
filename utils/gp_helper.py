@@ -143,7 +143,7 @@ class Acquisition:
         # simply use scipy.optimize.minimize for now
         res = minimize(
             lambda x: -1*self.get_acq(x.reshape(-1, xdim), gp), 
-            x_max.reshape(-1, xdim),
+            x_max.reshape(xdim,),
             bounds=bounds,
             )
         
@@ -151,7 +151,7 @@ class Acquisition:
             x_max = res.x
 
         # ensure the returned point is within bounds
-        return np.clip(x_max, bounds[:, 0], bounds[:, 1])
+        return np.clip(x_max.reshape(-1,xdim), bounds[:, 0], bounds[:, 1])
 
 class AcqEI(Acquisition):
     """
