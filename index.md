@@ -16,16 +16,17 @@ jupyter notebook
 
 You are now ready to execute the workshop notebooks.
 
-## Tutorials
-- [Neural networks](https://nbviewer.org/github/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/1-neural_networks.ipynb)
-- [Bayesian optimization](https://nbviewer.org/github/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/2-bayesian_optimization.ipynb)
-- [Reinforcement learning](https://nbviewer.org/github/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/3-reinforcement_learning.ipynb)
 
 ## Slides
  - [Introduction to machine learning in accelerator physics]()
  - [Introduction to artificial neural networks]()
  - [Introduction to Bayesian optimization]()
  - [Application of Bayesian optimization to improve the injection efficiency at KARA ]()
+
+## Hands-on tutorials
+- [Neural networks](https://nbviewer.org/github/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/1-neural_networks.ipynb)
+- [Bayesian optimization](https://nbviewer.org/github/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/2-bayesian_optimization.ipynb)
+- [Reinforcement learning](https://nbviewer.org/github/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/3-reinforcement_learning.ipynb)
 
 ### Bonus material
 - [Basic reinforcement learning introduction without ML libraries (dynamic programming)](https://nbviewer.org/github/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/bonus_material/RL_simple_gridworld.ipynb)
