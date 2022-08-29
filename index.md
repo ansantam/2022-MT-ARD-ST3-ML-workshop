@@ -4,17 +4,21 @@ These tutorials were first used for the [2022 MT ARD ST3 pre-meeting Machine Lea
 , part of the [10th MT ARD ST3 Meeting 2022 in Berlin](https://indico.desy.de/event/33584/).
 
 ## Getting started
-First, download anaconda and install it: https://www.anaconda.com/
+As a prerequisite for this workshop, please install *Anaconda*. You can refer to the ![Anaconda website](https://www.anaconda.com/) for instructions.
 
+With Anaconda installed, run the following command in the workshop directory to create the environment for the workshop.
+
+```bash
+conda env create -f environment.yaml
 ```
-git clone https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop.git
-cd 2022-MT-ARD-ST3-ML-workshop
-./setup.sh
-conda activate mt-ard-st3-ml-workshop
+
+Then start the Jupyter Notebook by running
+
+```bash
 jupyter notebook
 ```
 
-You are now ready to execute the workshop notebooks.
+You are now ready to execute the workshop notebooks. 🎉
 
 
 ## Slides
