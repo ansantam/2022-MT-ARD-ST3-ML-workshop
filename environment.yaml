@@ -10,6 +10,7 @@ dependencies:
     - git+https://github.com/desy-ml/cheetah.git@v0.5.13
     - gym[box2d]==0.21
     - h5py
+    - imageio
     - IPython
     - ipywidgets
     - Jupyter

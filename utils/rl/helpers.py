@@ -8,13 +8,14 @@ import cv2
 import gym
 from gym import spaces
 from gym.wrappers import FlattenObservation, FilterObservation, FrameStack, RecordVideo, RescaleAction, TimeLimit
+import imageio
 from IPython import display
 from ipywidgets import GridspecLayout, Output
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from scipy.ndimage import minimum_filter1d, uniform_filter1d
-from stable_baselines3 import TD3
+from stable_baselines3 import PPO, TD3
 from stable_baselines3.common.env_util import unwrap_wrapper
 from stable_baselines3.common.monitor import Monitor
 import yaml
@@ -51,6 +52,32 @@ def display_video(filename):
     return display.Video(filename)
 
 
+def make_lunar_lander_gif(model_path, gif_path):
+    env = gym.make("LunarLander-v2")
+    model = PPO.load(model_path)
+
+    images = []
+    obs = env.reset()
+    img = env.render(mode="rgb_array")
+    done = False
+    while not done:
+        images.append(img)
+        action, _ = model.predict(obs)
+        obs, _, done ,_ = env.step(action)
+        img = env.render(mode="rgb_array")
+
+    imageio.mimsave(f"{gif_path}.gif", [np.array(img) for i, img in enumerate(images) if i % 2 == 0], fps=29)
+    env.close()
+
+    
+def make_lunar_lander_training_gifs():
+    for steps in [1e5, 3e5, 1e6]:
+        make_lunar_lander_gif(
+            model_path=f"utils/rl/lunar_lander/checkpoints/rl_model_{int(steps)}_steps",
+            gif_path=f"img/lunar_lander_trainig_{int(steps)}_steps",
+        )
+
+
 def plot_acc_training_metrics():
     monitor = pd.read_csv("utils/rl/accelerator_evaluations/0.monitor.csv", index_col=False, skiprows=1)
 
@@ -72,17 +99,17 @@ def plot_acc_training_metrics():
 
 
 def plot_ll_training_metrics():
-    monitor = pd.read_csv("utils/rl/lunar_lander_evaluations/0.monitor.csv", index_col=False, skiprows=1)
+    monitor = pd.read_csv("utils/rl/lunar_lander/monitors/0.monitor.csv", index_col=False, skiprows=1)
 
     plt.figure(figsize=(13,4))
     plt.subplot(121)
     plt.title("Episode Rewards")
     plt.axhline(-100, color="tab:red", ls="--")
     plt.axhspan(-1000, -100, color="tab:red", alpha=0.2)
-    plt.text(230/60, -700, "Crashing", color="tab:red")
+    plt.text(120/60, -700, "Crashing", color="tab:red")
     plt.axhline(140, color="tab:green", ls="--")
     plt.axhspan(140, 400, color="tab:green", alpha=0.2)
-    plt.text(70/60, 250, "Landing", color="tab:green")
+    plt.text(15/60, 250, "Landing", color="tab:green")
     plt.plot(monitor["t"]/60, monitor["r"])
     plt.ylim(-950, 350)
     plt.xlabel("Wall time (min)")
