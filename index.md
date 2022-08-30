@@ -28,10 +28,10 @@ You are now ready to execute the workshop notebooks. 🎉
 
 
 ## Slides
- - [Introduction to machine learning in accelerator physics]()
- - [Introduction to artificial neural networks]()
- - [Introduction to Bayesian optimization]()
- - [Application of Bayesian optimization to improve the injection efficiency at KARA ]()
+ - [Introduction to machine learning in accelerator physics](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/slides/0-welcome.pdf)
+ - [Introduction to artificial neural networks](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/slides/1-neural-networks.pdf)
+ - [Introduction to Bayesian optimization](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/slides/2-bayesian-optimization.pdf)
+ - [Application of Bayesian optimization to improve the injection efficiency at KARA ](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/slides/3-bo-kara-demo.pdf)
 
 ## Hands-on tutorials
 - [Neural networks](https://nbviewer.org/github/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/1-neural_networks.ipynb)
