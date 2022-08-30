@@ -1,4 +1,5 @@
 action_mode: direct
+batch_size: 100
 filter_action:
 - 0
 - 1
@@ -68,6 +69,7 @@ misalignment_values: !!python/object/apply:numpy.core.multiarray._reconstruct
     AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
     AAAAAAAAAA==
 n_envs: 40
+n_steps: 100
 normalize_observation: true
 normalize_reward: true
 rescale_action: !!python/tuple
@@ -97,6 +99,7 @@ target_sigma_x_threshold: 0.0001
 target_sigma_y_threshold: 0.0001
 threshold_hold: 5
 time_limit: 25
+total_timesteps: 50000
 vec_env: subproc
 w_done: 50.0
 w_mu_x: 0.0
@@ -109,3 +112,4 @@ w_sigma_x_in_threshold: 1.0
 w_sigma_y: 1.0
 w_sigma_y_in_threshold: 1.0
 w_time: 0.0
+wandb_run_name: ml_workshop

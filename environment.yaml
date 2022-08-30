@@ -12,11 +12,11 @@ dependencies:
     - h5py
     - imageio
     - IPython
-    - ipywidgets
     - Jupyter
     - jupyter_contrib_nbextensions
     - jupyter_nbextensions_configurator
     - matplotlib
+    - moviepy
     - numba
     - numexpr
     - numpy
