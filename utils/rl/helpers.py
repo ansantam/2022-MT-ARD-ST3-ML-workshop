@@ -20,7 +20,7 @@ def make_ares_ea_training_videos():
     recdir = "utils/rl/ares_ea/recordings/ml_workshop"
     imgdir = "img"
 
-    for eval_episode in [0, 1, 8]: # [0, 60, 120, 300]:
+    for eval_episode in [0, 27, 343]:
         filename = f"rl-video-episode-{eval_episode}"
         clip = VideoFileClip(f"{recdir}/{filename}.mp4")
         clip.write_gif(f"{imgdir}/ares-ea-{filename}.gif", logger=None)
