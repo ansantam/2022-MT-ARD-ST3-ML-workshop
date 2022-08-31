@@ -54,7 +54,7 @@ You are now ready to execute the workshop notebooks. 🎉
 ## Troubleshooting
 
 ### Encountered error while trying to install package. box2d-py
-You might encounter this error on a Linux distribution that does not come with *gcc* installed by default (such as Ubunut). Run the following commands to fix, then re-run the command to create the environment.
+You might encounter this error on a Linux distribution that does not come with *gcc* installed by default (such as Ubuntu). Run the following commands to fix, then re-run the command to create the environment.
 
 ```bash
 sudo apt install build-essential
