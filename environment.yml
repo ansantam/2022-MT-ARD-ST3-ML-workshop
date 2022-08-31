@@ -7,6 +7,7 @@ dependencies:
   - ffmpeg
   - opencv
   - pyfftw
+  - swig
   - pip:
     - git+https://github.com/desy-ml/cheetah.git@v0.5.13
     - gym[box2d]==0.21
@@ -22,10 +23,8 @@ dependencies:
     - numba
     - numexpr
     - numpy
-    - opencv-python
     - pandas
     - scikit-learn
     - scikit-optimize
     - stable-baselines3
-    - swig
     - torch
