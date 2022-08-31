@@ -308,7 +308,7 @@ $RECYCLE.BIN/
 *.jar
 *.rar
 *.tar
-*.zip
+# *.zip     # Jan: Unignored for commiting RL models
 
 # KDE
 .directory
