@@ -16,7 +16,7 @@ cd 2022-MT-ARD-ST3-ML-workshop
 With Anaconda installed, run the following command in the workshop directory to create the environment for the workshop.
 
 ```bash
-conda env create -f environment.yaml
+conda env create -f environment.yml
 ```
 
 Use the following command to activate the workshop environment.
