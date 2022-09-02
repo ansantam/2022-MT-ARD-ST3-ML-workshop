@@ -5,12 +5,6 @@ These tutorials were first used for the [2022 MT ARD ST3 pre-meeting Machine Lea
 
 ## Getting started
 
-You can run the Notebooks in this repository either locally or in the cloud.
-
-To run in the cloud, visit the [repository home page](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop) and click on the Binder badge. This may take a minute to load.
-
-To run the notebooks for this workshop locally, please install *Python*. Then go ahead and clone the workshop repository and changing into the workshop directory.
-
 ```bash
 cd 2022-MT-ARD-ST3-ML-workshop
 git pull
