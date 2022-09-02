@@ -54,6 +54,7 @@ You are now ready to execute the workshop notebooks. 🎉
 ## References
 - [Literature: ML in accelerator physics](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/references/references.pdf)
 
+
 ## Troubleshooting
 
 ### git not found
@@ -67,4 +68,3 @@ You might encounter this error on a Linux distribution that does not come with *
 sudo apt install build-essential
 conda env remove --name mt-ard-st3-ml-workshop
 ```
-
