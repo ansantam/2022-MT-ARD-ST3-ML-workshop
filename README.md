@@ -9,18 +9,19 @@ These tutorials were first used for the [2022 MT ARD ST3 pre-meeting Machine Lea
 
 ## Getting started
 
-You can run the Notebooks in this repository either locally or in the cloud.
+You can run the notebooks in this repository either locally or on the cloud.
 
-To run in the cloud, visit the [repository home page](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop) and click on the Binder badge. This may take a minute to load.
+To run in the cloud, click on the Binder badge at the top left of this page. This may take a minute to spawn.
 
-To run the notebooks for this workshop locally, please install *Python*. Then go ahead and clone the workshop repository and changing into the workshop directory.
+To run the notebooks for this workshop locally, you will need a *Python* 🐍 installation. 
+You can then clone the workshop repository and access it:
 
 ```bash
 git clone https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop.git
 cd 2022-MT-ARD-ST3-ML-workshop
 ```
 
-With Python installed, run the following command to install the packages for the workshop for the workshop.
+With Python installed, run the following command to install the needed packages:
 
 ```bash
 pip install -r requirements.txt
@@ -32,9 +33,9 @@ Then start the Jupyter Notebook by running
 jupyter notebook
 ```
 
-You are now ready to execute the workshop notebooks. 🎉
+You are now ready to execute the workshop notebooks 🎉
 
-**Note:** The reinforcement learning Notebook has a number of additional requirements and cannot be run on Binder. Please refer to the instructions in the Notebook itself for the installation. We do not require you to run this particular Notebook during the workshop.
+**Note:** The reinforcement learning notebook has a number of additional requirements and cannot be run on Binder. Please refer to the instructions in the notebook itself for the installation.
 
 
 ## Slides
@@ -42,6 +43,7 @@ You are now ready to execute the workshop notebooks. 🎉
  - [Introduction to artificial neural networks](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/slides/1-neural-networks.pdf)
  - [Introduction to Bayesian optimization](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/slides/2-bayesian-optimization.pdf)
  - [Application of Bayesian optimization to improve the injection efficiency at KARA ](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/slides/3-bo-kara-demo.pdf)
+  - [Reinforcement learning for particle accelerators](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/slides/3-reinforcement-learning.pdf)
 
 ## Hands-on tutorials
 - [Neural networks](https://nbviewer.org/github/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/1-neural_networks.ipynb)
@@ -50,6 +52,7 @@ You are now ready to execute the workshop notebooks. 🎉
 
 ### Bonus material
 - [Basic reinforcement learning introduction without ML libraries (dynamic programming)](https://nbviewer.org/github/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/bonus_material/RL_simple_gridworld.ipynb)
+- [Quadrupole surrogate model (tensorflow & pytorch)](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/tree/main/bonus_material/quadrupole_surrogate)
 
 ## References
 - [Literature: ML in accelerator physics](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/references/references.pdf)
