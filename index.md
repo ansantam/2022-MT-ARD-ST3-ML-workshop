@@ -4,25 +4,22 @@ These tutorials were first used for the [2022 MT ARD ST3 pre-meeting Machine Lea
 , part of the [10th MT ARD ST3 Meeting 2022 in Berlin](https://indico.desy.de/event/33584/).
 
 ## Getting started
-As a prerequisite for this workshop, please install *Anaconda*. You can refer to the [Anaconda website](https://www.anaconda.com/) for instructions.
 
-Start by cloning the workshop repository and changing into the workshop directory.
+You can run the Notebooks in this repository either locally or in the cloud.
+
+To run in the cloud, visit the [repository home page](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop) and click on the Binder badge. This may take a minute to load.
+
+To run the notebooks for this workshop locally, please install *Python*. Then go ahead and clone the workshop repository and changing into the workshop directory.
 
 ```bash
 git clone https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop.git
 cd 2022-MT-ARD-ST3-ML-workshop
 ```
 
-With Anaconda installed, run the following command in the workshop directory to create the environment for the workshop.
+With Python installed, run the following command to install the packages for the workshop for the workshop.
 
 ```bash
-conda env create -f environment.yml
-```
-
-Use the following command to activate the workshop environment.
-
-```bash
-conda activate mt-ard-st3-ml-workshop
+pip install -r requirements.txt
 ```
 
 Then start the Jupyter Notebook by running
@@ -32,6 +29,8 @@ jupyter notebook
 ```
 
 You are now ready to execute the workshop notebooks. 🎉
+
+**Note:** The reinforcement learning Notebook has a number of additional requirements and cannot be run on Binder. Please refer to the instructions in the Notebook itself for the installation. We do not require you to run this particular Notebook during the workshop.
 
 
 ## Slides
@@ -52,6 +51,10 @@ You are now ready to execute the workshop notebooks. 🎉
 - [Literature: ML in accelerator physics](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/references/references.pdf)
 
 ## Troubleshooting
+
+### git not found
+
+It may be that you cannot clone the repository to your local machine because git is not installed. In that case, instead of using git, simply visit the [repository home page](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop), click the green *Code* button and select *Download ZIP*.
 
 ### Encountered error while trying to install package. box2d-py
 You might encounter this error on a Linux distribution that does not come with *gcc* installed by default (such as Ubuntu). Run the following commands to fix, then re-run the command to create the environment.
