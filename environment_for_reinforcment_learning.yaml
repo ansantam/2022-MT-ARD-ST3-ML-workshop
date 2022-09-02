@@ -1,4 +1,4 @@
-name: mt-ard-st3-ml-workshop
+name: mt-ard-st3-ml-workshop-rl
 channels:
   - conda-forge
 dependencies:

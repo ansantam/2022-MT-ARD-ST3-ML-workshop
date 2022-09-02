@@ -1,0 +1,7 @@
+h5py
+jupyterlab
+matplotlib
+numpy
+scikit-learn
+scikit-optimize
+torch
