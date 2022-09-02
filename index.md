@@ -4,6 +4,8 @@ These tutorials were first used for the [2022 MT ARD ST3 pre-meeting Machine Lea
 , part of the [10th MT ARD ST3 Meeting 2022 in Berlin](https://indico.desy.de/event/33584/).
 
 ## Getting started
+- Log in one of the room PCs with the username and password provided on the piece of paper that we gave you
+- Open a terminal and execute:
 
 ```bash
 cd 2022-MT-ARD-ST3-ML-workshop
