@@ -16,9 +16,6 @@ jupyter notebook
 
 You are now ready to execute the workshop notebooks. 🎉
 
-**Note:** The reinforcement learning Notebook has a number of additional requirements and cannot be run on Binder. Please refer to the instructions in the Notebook itself for the installation. We do not require you to run this particular Notebook during the workshop.
-
-
 ## Slides
  - [Introduction to machine learning in accelerator physics](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/slides/0-welcome.pdf)
  - [Introduction to artificial neural networks](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/slides/1-neural-networks.pdf)
