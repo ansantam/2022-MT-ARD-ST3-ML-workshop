@@ -22,6 +22,7 @@ You are now ready to execute the workshop notebooks. 🎉
  - [Introduction to artificial neural networks](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/slides/1-neural-networks.pdf)
  - [Introduction to Bayesian optimization](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/slides/2-bayesian-optimization.pdf)
  - [Application of Bayesian optimization to improve the injection efficiency at KARA ](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/slides/3-bo-kara-demo.pdf)
+ - [Reinforcement learning for particle accelerators](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/slides/3-reinforcement-learning.pdf)
 
 ## Hands-on tutorials
 - [Neural networks](https://nbviewer.org/github/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/1-neural_networks.ipynb)
@@ -36,7 +37,7 @@ You are now ready to execute the workshop notebooks. 🎉
 - [Literature: ML in accelerator physics](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/references/references.pdf)
 
 
-**Note:** The reinforcement learning Notebook has a number of additional requirements and cannot be run on Binder. Please refer to the instructions in the Notebook itself for the installation. We do not require you to run this particular Notebook during the workshop.
+
 
 
 
