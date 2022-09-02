@@ -29,7 +29,8 @@ You are now ready to execute the workshop notebooks. 🎉
 - [Reinforcement learning](https://nbviewer.org/github/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/3-reinforcement_learning.ipynb)
 
 ### Bonus material
-- [Basic reinforcement learning introduction without ML libraries (dynamic programming)](https://nbviewer.org/github/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/bonus_material/RL_simple_gridworld.ipynb)
+- [Basic reinforcement learning introduction without ML libraries](https://nbviewer.org/github/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/bonus_material/RL_simple_gridworld.ipynb)
+- [Quadrupole surrogate model (tensorflow & pytorch)](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/tree/main/bonus_material/quadrupole_surrogate)
 
 ## References
 - [Literature: ML in accelerator physics](https://github.com/ansantam/2022-MT-ARD-ST3-ML-workshop/blob/main/references/references.pdf)
