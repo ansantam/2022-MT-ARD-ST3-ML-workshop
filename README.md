@@ -11,9 +11,8 @@ These tutorials were first used for the [2022 MT ARD ST3 pre-meeting Machine Lea
 
 You can run the notebooks in this repository either locally or on the cloud.
 
-To run in the cloud, click on the Binder badge at the top left of this page. This may take a minute to spawn.
-
-To run the notebooks for this workshop locally, you will need a *Python* 🐍 installation. 
+- To run in the cloud, click on the Binder badge at the top left of this page. This may take a minute to spawn.
+- To run the notebooks for this workshop locally, you will need a *Python* 🐍 installation. 
 You can then clone the workshop repository and access it:
 
 ```bash
