@@ -73,8 +73,8 @@ def plot_gp(gpr, x, y, x_samples, y_samples, ax=None):
     ax.plot(x, y_mean, label=r"GP mean $\mu(x)$", color='black')
     ax.fill_between(
         x,
-        y_mean - y_std,
-        y_mean + y_std,
+        np.array(y_mean - y_std),
+        np.array(y_mean + y_std),
         alpha=0.3,
         color="grey",
         label=r"$\pm 1 \sigma$",
